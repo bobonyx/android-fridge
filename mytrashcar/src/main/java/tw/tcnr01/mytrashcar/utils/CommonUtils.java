@@ -1,5 +1,7 @@
 package tw.tcnr01.mytrashcar.utils;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -10,8 +12,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class SortJsonArray {
-    public  static JSONArray sortJsonArray(JSONArray jsonArray,String keyName) {//把相同的car號碼擺在一起
+import tw.tcnr01.mytrashcar.Garsign03;
+import tw.tcnr01.mytrashcar.R;
+
+public class CommonUtils {
+    public static JSONArray sortJsonArray(JSONArray jsonArray, String keyName) {//把相同的car號碼擺在一起
         ArrayList<JSONObject> jsons = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++) {
             try {
@@ -37,5 +42,17 @@ public class SortJsonArray {
             }
         });
         return new JSONArray(jsons);
+    }
+
+    public static ProgressDialog showProgressDialog(Context context) {
+        final ProgressDialog pd = new ProgressDialog(context);
+        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);//progressbox  跳出視窗顯示
+        pd.setTitle("連結伺服器");
+        pd.setMessage("Loading.........");
+        pd.setIcon(R.drawable.garbagetruckicon1);
+        pd.setIndeterminate(false);
+        pd.show();
+
+        return pd;
     }
 }

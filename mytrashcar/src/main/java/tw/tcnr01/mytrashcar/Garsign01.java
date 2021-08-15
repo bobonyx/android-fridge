@@ -1,6 +1,7 @@
 package tw.tcnr01.mytrashcar;
 
-import static tw.tcnr01.mytrashcar.utils.SortJsonArray.sortJsonArray;
+import static tw.tcnr01.mytrashcar.utils.CommonUtils.showProgressDialog;
+import static tw.tcnr01.mytrashcar.utils.CommonUtils.sortJsonArray;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -13,7 +14,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,8 +32,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,7 +50,7 @@ public class Garsign01 extends AppCompatActivity {
     private TextView t_title;
     private String check_t = null;
     private TableRow gstab01;
-    private Spinner s001,s002;
+    private Spinner s001, s002;
     private String m_Response;
     private TextView howmanydata;
     private Uri uri;
@@ -82,7 +80,7 @@ public class Garsign01 extends AppCompatActivity {
     }
 
     private void setupViewComponent() {
-        howmanydata=(TextView)findViewById(R.id.howmany);
+        howmanydata = (TextView) findViewById(R.id.howmany);
         // 動態調整高度 抓取使用裝置尺寸
         DisplayMetrics displayMetrics = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -94,13 +92,7 @@ public class Garsign01 extends AppCompatActivity {
         gslist001.setLayoutParams(gslist001.getLayoutParams()); // 重定ScrollView大小
         gstab01 = (TableRow) findViewById(R.id.gs_tab01);
         //********設定轉圈圈進度對話盒*****************************
-        final ProgressDialog pd = new ProgressDialog(Garsign01.this);
-        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);//progressbox  跳出視窗顯示
-        pd.setTitle("連結伺服器");
-        pd.setMessage("Loading.........");
-        pd.setIcon(R.drawable.garbagetruckicon1);
-        pd.setIndeterminate(false);
-        pd.show();
+        ProgressDialog pd = showProgressDialog(this);
         //***************************************************************
         OkHttpClient client = new OkHttpClient();
         String url = "https://datacenter.taichung.gov.tw/swagger/OpenData/215be7a0-a5a1-48b8-9489-2633fed19de3";//下載測試
@@ -123,7 +115,7 @@ public class Garsign01 extends AppCompatActivity {
                                 //解析JSON
                                 JSONArray jsonArray = new JSONArray(m_Response);
                                 //------JSON 排序-
-                                jsonArray = sortJsonArray(jsonArray,"car");
+                                jsonArray = sortJsonArray(jsonArray, "car");
                                 //----+表頭---------
 //            lineid(清運點編號)、car(車牌號碼)、time(回傳時間)、location(回傳地點)、X(x座標)、Y(y座標)
                                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -160,7 +152,7 @@ public class Garsign01 extends AppCompatActivity {
                                     );
                                     gslist001.setAdapter(adapter);
                                 }
-                                howmanydata.setText("共"+jsonArray.length()+"筆"+".");
+                                howmanydata.setText("共" + jsonArray.length() + "筆" + ".");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -249,8 +241,7 @@ public class Garsign01 extends AppCompatActivity {
 //    };
 
 
-
-//    @Override
+    //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {//類似setContentView(R.layout.garsign01)把畫面跟程式碼綁一起
 //        // Inflate the menu; this adds items to the action bar if it is present.
 //        getMenuInflater().inflate(R.menu.main, menu);
@@ -272,10 +263,11 @@ public class Garsign01 extends AppCompatActivity {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
-@Override
-public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
 //        super.onBackPressed();
-}
+    }
+
     //-----------------------選單---------------------------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -289,7 +281,7 @@ public void onBackPressed() {
 
             case R.id.menu_fb:
                 uri = Uri.parse("https://www.facebook.com/kai.hao.9");
-                it = new Intent(Intent.ACTION_VIEW,uri);
+                it = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(it);
                 break;
 
@@ -317,7 +309,7 @@ public void onBackPressed() {
             case R.id.menu_member:
                 new AlertDialog.Builder(this)
                         .setTitle(R.string.menu_member)
-                        .setMessage(getString(R.string.menu_member_message)+"\n"+"維尼、大神、佳佳、波波、柏榕、老大、培揚")
+                        .setMessage(getString(R.string.menu_member_message) + "\n" + "維尼、大神、佳佳、波波、柏榕、老大、培揚")
                         .setCancelable(false)
                         .setIcon(R.drawable.iu06)
                         .setPositiveButton(R.string.menu_ok, new DialogInterface.OnClickListener() {

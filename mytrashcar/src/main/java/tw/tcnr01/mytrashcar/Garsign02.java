@@ -1,6 +1,7 @@
 package tw.tcnr01.mytrashcar;
 
-import static tw.tcnr01.mytrashcar.utils.SortJsonArray.sortJsonArray;
+import static tw.tcnr01.mytrashcar.utils.CommonUtils.showProgressDialog;
+import static tw.tcnr01.mytrashcar.utils.CommonUtils.sortJsonArray;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -8,7 +9,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,8 +31,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,13 +76,7 @@ public class Garsign02 extends AppCompatActivity {
         gslist002.setLayoutParams(gslist002.getLayoutParams()); // 重定ScrollView大小
         gstab02 = (TableRow) findViewById(R.id.gs_tab02);
         //********設定轉圈圈進度對話盒*****************************
-        final ProgressDialog pd = new ProgressDialog(Garsign02.this);
-        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);//progressbox  跳出視窗顯示
-        pd.setTitle("連結伺服器");
-        pd.setMessage("Loading.........");
-        pd.setIcon(R.drawable.garbagetruckicon1);
-        pd.setIndeterminate(false);
-        pd.show();
+        ProgressDialog pd = showProgressDialog(this);
         //***************************************************************
         OkHttpClient client = new OkHttpClient();
         String url = "http://opendataap2.penghu.gov.tw/resource/files/2021-03-31/c4a7fe6c95ed0d82c7038a9f81e182e3.json";//下載測試
@@ -107,7 +99,7 @@ public class Garsign02 extends AppCompatActivity {
                                 //解析JSON
                                 JSONArray jsonArray = new JSONArray(m_Response);
                                 //------JSON 排序-
-                                jsonArray = sortJsonArray(jsonArray,"路線");
+                                jsonArray = sortJsonArray(jsonArray, "路線");
                                 //----+表頭---------
 //            lineid(清運點編號)、car(車牌號碼)、time(回傳時間)、location(回傳地點)、X(x座標)、Y(y座標)
 //路線", "清運區", "清運站", "清運時間", "資源回收車收運時間"
@@ -203,7 +195,6 @@ public class Garsign02 extends AppCompatActivity {
             }
         });
     }
-
 
 
     @Override

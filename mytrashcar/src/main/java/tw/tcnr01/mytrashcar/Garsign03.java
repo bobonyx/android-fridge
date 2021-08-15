@@ -1,6 +1,7 @@
 package tw.tcnr01.mytrashcar;
 
-import static tw.tcnr01.mytrashcar.utils.SortJsonArray.sortJsonArray;
+import static tw.tcnr01.mytrashcar.utils.CommonUtils.showProgressDialog;
+import static tw.tcnr01.mytrashcar.utils.CommonUtils.sortJsonArray;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -8,7 +9,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,8 +31,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,13 +76,7 @@ public class Garsign03 extends AppCompatActivity {
         gslist003.setLayoutParams(gslist003.getLayoutParams()); // 重定ScrollView大小
         gstab03 = (TableRow) findViewById(R.id.gs_tab03);
         //********設定轉圈圈進度對話盒*****************************
-        final ProgressDialog pd = new ProgressDialog(Garsign03.this);
-        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);//progressbox  跳出視窗顯示
-        pd.setTitle("連結伺服器");
-        pd.setMessage("Loading.........");
-        pd.setIcon(R.drawable.garbagetruckicon1);
-        pd.setIndeterminate(false);
-        pd.show();
+        ProgressDialog pd = showProgressDialog(this);
         //***************************************************************
         OkHttpClient client = new OkHttpClient();
         String url = "https://odws.hccg.gov.tw/001/Upload/25/opendata/9059/165/f91f9475-42b8-407c-89d3-f0dd5dc2e2f8.json";//下載測試
