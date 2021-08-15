@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/android-work/rubbishtrucktest/1603a_OpenData_rubbishtruck/src/main/res/layout/list.xml" value="0.18568840579710144" />
+        <entry key="..\:/android-work/rubbishtrucktest/1603a_OpenData_rubbishtruck/src/main/res/layout/m1603.xml" value="0.18568840579710144" />
+        <entry key="..\:/android-work/rubbishtrucktest/FG_Expired/src/main/res/layout/garsign01.xml" value="0.19114583333333332" />
+        <entry key="..\:/android-work/rubbishtrucktest/FG_Expired/src/main/res/menu/main.xml" value="0.19114583333333332" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/layout/garsign01.xml" value="0.23714285714285716" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/layout/garsign02.xml" value="0.33" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/layout/garsign03.xml" value="0.33" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/layout/garslist.xml" value="0.33" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/layout/garslist01.xml" value="0.33" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/layout/garslist02.xml" value="0.33" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/layout/garslist03.xml" value="0.1" />
+        <entry key="..\:/android-work/rubbishtrucktest/mytrashcar/src/main/res/menu/main.xml" value="0.19114583333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.8563218390804598" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

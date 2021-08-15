@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tw.tcnr01.mytrashcar">
+    <uses-permission android:name="android.permission.INTERNET"/><!--允許使用網路-->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_a"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_a_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Garsign01">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Garsign02"></activity>
+        <activity android:name=".Garsign03"></activity>
+    </application>
+
+</manifest>
