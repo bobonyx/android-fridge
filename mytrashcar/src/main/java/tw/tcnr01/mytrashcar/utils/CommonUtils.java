@@ -16,6 +16,12 @@ import tw.tcnr01.mytrashcar.Garsign03;
 import tw.tcnr01.mytrashcar.R;
 
 public class CommonUtils {
+    /**
+     * ?????
+     * @param jsonArray
+     * @param keyName
+     * @return
+     */
     public static JSONArray sortJsonArray(JSONArray jsonArray, String keyName) {//把相同的car號碼擺在一起
         ArrayList<JSONObject> jsons = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -44,6 +50,11 @@ public class CommonUtils {
         return new JSONArray(jsons);
     }
 
+    /**
+     * ?????
+     * @param context
+     * @return
+     */
     public static ProgressDialog showProgressDialog(Context context) {
         final ProgressDialog pd = new ProgressDialog(context);
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);//progressbox  跳出視窗顯示

@@ -40,13 +40,13 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import tw.tcnr01.mytrashcar.utils.ProcessData;
 
 
 public class Garsign01 extends AppCompatActivity {
 
     private ListView gslist001;
     private ArrayAdapter<String> adapter;
-    private ArrayList<Map<String, Object>> mList;
     private TextView t_title;
     private String check_t = null;
     private TableRow gstab01;
@@ -87,7 +87,7 @@ public class Garsign01 extends AppCompatActivity {
         int newscrollheight = displayMetrics.heightPixels * 90 / 100; // 設定ScrollView使用尺寸的4/5
         //---------------------------------------
         gslist001 = (ListView) findViewById(R.id.gs_list001);
-        mList = new ArrayList<Map<String, Object>>();
+
         gslist001.getLayoutParams().height = newscrollheight;
         gslist001.setLayoutParams(gslist001.getLayoutParams()); // 重定ScrollView大小
         gstab01 = (TableRow) findViewById(R.id.gs_tab01);
@@ -111,51 +111,15 @@ public class Garsign01 extends AppCompatActivity {
                     Garsign01.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            try {
-                                //解析JSON
-                                JSONArray jsonArray = new JSONArray(m_Response);
-                                //------JSON 排序-
-                                jsonArray = sortJsonArray(jsonArray, "car");
-                                //----+表頭---------
-//            lineid(清運點編號)、car(車牌號碼)、time(回傳時間)、location(回傳地點)、X(x座標)、Y(y座標)
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject jsonData = jsonArray.getJSONObject(i);//讀取一筆資料
-                                    Map<String, Object> item = new HashMap<String, Object>();//hashmap可以一筆一筆存
-                                    String Car = jsonData.getString("car");//抓key顯示value
-                                    String Time_a = jsonData.getString("time");
-                                    String Location_a = jsonData.getString("location");
-                                    String X_a = jsonData.getString("X");
-                                    String Y_a = jsonData.getString("Y");
 
-                                    if (Car.equals(check_t)) {//除錯的動作?
-//                    Log.e("123", Car);
-                                        Car = ".."; //相同的用..(兩點) 相同東西放在一起
-                                    } else {
-                                        check_t = Car;
-//                    Log.e("456", Car);
-                                    }
+                            String[] data1 = new String[]{"car", "time", "location", "X", "Y"};
+                            String[] data2 = new String[]{"路線", "清運區", "清運站", "清運時間", "資源回收車收運時間"};
+                            String[] data3 = new String[]{"車號", "清潔公車停置地點", "預估到達時間", "清運日_星期幾", "回收日_星期幾"};
 
-                                    item.put("car", Car); //key+value
-                                    item.put("time", Time_a);
-                                    item.put("location", Location_a);
-                                    item.put("X", X_a);
-                                    item.put("Y", Y_a);
-                                    mList.add(item);
-
-                                    //=========設定listview========
-                                    SimpleAdapter adapter = new SimpleAdapter(
-                                            Garsign01.this,
-                                            mList,
-                                            R.layout.garslist01,//應該garsitem
-                                            new String[]{"car", "time", "location", "X", "Y"},
-                                            new int[]{R.id.gs_tt001, R.id.gs_tt002, R.id.gs_tt003, R.id.gs_tt004, R.id.gs_tt005}
-                                    );
-                                    gslist001.setAdapter(adapter);
-                                }
-                                howmanydata.setText("共" + jsonArray.length() + "筆" + ".");
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                            int dataCount =
+                                    ProcessData.process(Garsign01.this, gslist001,
+                                            m_Response, new String[]{"car", "time", "location", "X", "Y"});
+                            howmanydata.setText("共" + dataCount + "筆" + ".");
                             pd.cancel();
                         }
                     });
