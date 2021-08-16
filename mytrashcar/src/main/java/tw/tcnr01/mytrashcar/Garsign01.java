@@ -95,8 +95,10 @@ public class Garsign01 extends AppCompatActivity {
         ProgressDialog pd = showProgressDialog(this);
         //***************************************************************
         OkHttpClient client = new OkHttpClient();
-        String url = "https://datacenter.taichung.gov.tw/swagger/OpenData/215be7a0-a5a1-48b8-9489-2633fed19de3";//下載測試
-        Request request = new Request.Builder().url(url).build();
+        String taichungData = "https://datacenter.taichung.gov.tw/swagger/OpenData/215be7a0-a5a1-48b8-9489-2633fed19de3";//下載測試
+        String penghuData = "http://opendataap2.penghu.gov.tw/resource/files/2021-03-31/c4a7fe6c95ed0d82c7038a9f81e182e3.json";//下載測試
+        String hsinchuData  = "https://odws.hccg.gov.tw/001/Upload/25/opendata/9059/165/f91f9475-42b8-407c-89d3-f0dd5dc2e2f8.json";//下載測試
+        Request request = new Request.Builder().url(taichungData).build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -116,9 +118,7 @@ public class Garsign01 extends AppCompatActivity {
                             String[] data2 = new String[]{"路線", "清運區", "清運站", "清運時間", "資源回收車收運時間"};
                             String[] data3 = new String[]{"車號", "清潔公車停置地點", "預估到達時間", "清運日_星期幾", "回收日_星期幾"};
 
-                            int dataCount =
-                                    ProcessData.process(Garsign01.this, gslist001,
-                                            m_Response, new String[]{"car", "time", "location", "X", "Y"});
+                            int dataCount = ProcessData.process(Garsign01.this, gslist001, m_Response, data1);
                             howmanydata.setText("共" + dataCount + "筆" + ".");
                             pd.cancel();
                         }
