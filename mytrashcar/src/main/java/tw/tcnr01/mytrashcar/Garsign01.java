@@ -1,9 +1,5 @@
 package tw.tcnr01.mytrashcar;
 
-import static tw.tcnr01.mytrashcar.utils.CommonUtils.showProgressDialog;
-import static tw.tcnr01.mytrashcar.utils.CommonUtils.sortJsonArray;
-
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -20,27 +16,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import tw.tcnr01.mytrashcar.utils.ProcessData;
+import tw.tcnr01.mytrashcar.utils.GetTrashData;
 
 
 public class Garsign01 extends AppCompatActivity {
@@ -53,6 +33,7 @@ public class Garsign01 extends AppCompatActivity {
     private Spinner s001, s002;
     private String m_Response;
     private TextView howmanydata;
+    private TextView gs_t001, gs_t002, gs_t003, gs_t004, gs_t005;
     private Uri uri;
     private Intent it;
 
@@ -91,41 +72,14 @@ public class Garsign01 extends AppCompatActivity {
         gslist001.getLayoutParams().height = newscrollheight;
         gslist001.setLayoutParams(gslist001.getLayoutParams()); // 重定ScrollView大小
         gstab01 = (TableRow) findViewById(R.id.gs_tab01);
-        //********設定轉圈圈進度對話盒*****************************
-        ProgressDialog pd = showProgressDialog(this);
-        //***************************************************************
-        OkHttpClient client = new OkHttpClient();
-        String taichungData = "https://datacenter.taichung.gov.tw/swagger/OpenData/215be7a0-a5a1-48b8-9489-2633fed19de3";//下載測試
-        String penghuData = "http://opendataap2.penghu.gov.tw/resource/files/2021-03-31/c4a7fe6c95ed0d82c7038a9f81e182e3.json";//下載測試
-        String hsinchuData  = "https://odws.hccg.gov.tw/001/Upload/25/opendata/9059/165/f91f9475-42b8-407c-89d3-f0dd5dc2e2f8.json";//下載測試
-        Request request = new Request.Builder().url(taichungData).build();
+        gs_t001 = (TextView) findViewById(R.id.gs_t001);
+        gs_t002 = (TextView) findViewById(R.id.gs_t002);
+        gs_t003 = (TextView) findViewById(R.id.gs_t003);
+        gs_t004 = (TextView) findViewById(R.id.gs_t004);
+        gs_t005 = (TextView) findViewById(R.id.gs_t005);
 
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    m_Response = response.body().string();
-                    Garsign01.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            String[] data1 = new String[]{"car", "time", "location", "X", "Y"};
-                            String[] data2 = new String[]{"路線", "清運區", "清運站", "清運時間", "資源回收車收運時間"};
-                            String[] data3 = new String[]{"車號", "清潔公車停置地點", "預估到達時間", "清運日_星期幾", "回收日_星期幾"};
-
-                            int dataCount = ProcessData.process(Garsign01.this, gslist001, m_Response, data1);
-                            howmanydata.setText("共" + dataCount + "筆" + ".");
-                            pd.cancel();
-                        }
-                    });
-                }
-            }
-        });
+        // 取得預設資料(台中)
+        GetTrashData.getData(this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
 
         s001 = (Spinner) findViewById(R.id.city_s001);
         s002 = (Spinner) findViewById(R.id.city_s002);
@@ -139,20 +93,33 @@ public class Garsign01 extends AppCompatActivity {
                 switch (position) {
                     case 0://台中
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a001, android.R.layout.simple_spinner_item);
-
+                        gs_t001.setText(getString(R.string.t001));
+                        gs_t002.setText(getString(R.string.t002));
+                        gs_t003.setText(getString(R.string.t003));
+                        gs_t004.setText(getString(R.string.t004));
+                        gs_t005.setText(getString(R.string.t005));
+                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
                         break;
 //                    case 1://新北
 //                        spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a002, android.R.layout.simple_spinner_item);
 //                        break;
                     case 1://澎湖
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a003, android.R.layout.simple_spinner_item);
-                        it.setClass(Garsign01.this, Garsign02.class);
-                        startActivity(it);
+                        gs_t001.setText(getString(R.string.t011));
+                        gs_t002.setText(getString(R.string.t012));
+                        gs_t003.setText(getString(R.string.t013));
+                        gs_t004.setText(getString(R.string.t014));
+                        gs_t005.setText(getString(R.string.t015));
+                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.PENGHU);
                         break;
                     case 2://新竹
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a004, android.R.layout.simple_spinner_item);
-                        it.setClass(Garsign01.this, Garsign03.class);
-                        startActivity(it);
+                        gs_t001.setText(getString(R.string.t001));
+                        gs_t002.setText(getString(R.string.t022));
+                        gs_t003.setText(getString(R.string.t023));
+                        gs_t004.setText(getString(R.string.t024));
+                        gs_t005.setText(getString(R.string.t025));
+                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.HSINCHU);
                         break;
 //                    case 4://宜蘭
 //                        spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a005, android.R.layout.simple_spinner_item);
