@@ -26,7 +26,7 @@ import tw.tcnr01.mytrashcar.utils.GetTrashData;
 import tw.tcnr01.mytrashcar.utils.SelectLocationListener;
 
 
-public class Garsign01 extends AppCompatActivity implements View.OnClickListener{
+public class Garsign01 extends AppCompatActivity implements View.OnClickListener {
 
     private ListView gslist001;
     private ArrayAdapter<String> adapter;
@@ -57,7 +57,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
         int newscrollheight = displayMetrics.heightPixels * 90 / 100; // 設定ScrollView使用尺寸的4/5
         //---------------------------------------
         gslist001 = (ListView) findViewById(R.id.gs_list001);
-        searchcar=(ImageButton)findViewById(R.id.gs_search001);
+        searchcar = (ImageButton) findViewById(R.id.gs_search001);
         gslist001.getLayoutParams().height = newscrollheight;
         gslist001.setLayoutParams(gslist001.getLayoutParams()); // 重定ScrollView大小
         gstab01 = (TableRow) findViewById(R.id.gs_tab01);
@@ -112,7 +112,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
                 if (null != spinzoneAdapter) {
                     spinzoneAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     s002.setAdapter(spinzoneAdapter);
-                    s002.setOnItemSelectedListener(new SelectLocationListener(Garsign01.this));
+                    s002.setOnItemSelectedListener(new SelectLocationListener(Garsign01.this, howmanydata, gslist001));
                 }
             }
 
@@ -122,6 +122,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
             }
         });
     }
+
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
@@ -196,11 +197,11 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.gs_search001:
                 it.setClass(Garsign01.this, GarsignSql.class);
                 startActivity(it);
-             break;
+                break;
         }
     }
 }

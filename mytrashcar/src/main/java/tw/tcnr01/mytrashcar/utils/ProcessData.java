@@ -21,7 +21,7 @@ public class ProcessData {
     public static int process(Context context, ListView listView, String response, String[] keys, String filterLocation) {
         ArrayList<Map<String, Object>> mList = new ArrayList<Map<String, Object>>();
         JSONArray jsonArray = new JSONArray();
-        Log.e("filterLocation", filterLocation);
+        if (filterLocation != null) Log.e("filterLocation", filterLocation);
         try {
             jsonArray = new JSONArray(response);
             // 解析JSON
@@ -33,12 +33,22 @@ public class ProcessData {
 
                 JSONObject jsonData = jsonArray.getJSONObject(i);//讀取一筆資料
                 Map<String, Object> item = new HashMap<String, Object>();//hashmap可以一筆一筆存
-                item.put(keys[0], jsonData.getString(keys[0])); //key+value
-                item.put(keys[1], jsonData.getString(keys[1]));
-                item.put(keys[2], jsonData.getString(keys[2]));
-                item.put(keys[3], jsonData.getString(keys[3]));
-                item.put(keys[4], jsonData.getString(keys[4]));
-                mList.add(item);
+                item.put(keys[0], jsonData.getString(keys[0])); //key+value 車號
+                item.put(keys[1], jsonData.getString(keys[1]));//時間
+                item.put(keys[2], jsonData.getString(keys[2]));//地點
+                item.put(keys[3], jsonData.getString(keys[3]));//x
+                item.put(keys[4], jsonData.getString(keys[4]));//y
+//                Log.d("12345678","sssssss");
+//                Log.d("keys[0]", jsonData.getString(keys[0]));
+//                Log.d("keys[1]", jsonData.getString(keys[1]));
+//                Log.d("keys[2]", jsonData.getString(keys[2]));
+//                Log.d("keys[3]", jsonData.getString(keys[3]));
+//                Log.d("keys[4]", jsonData.getString(keys[4]));
+                if (null == filterLocation) {
+                    mList.add(item);
+                } else if (jsonData.getString(keys[3]).contains(filterLocation)) {
+                    mList.add(item);
+                }
 
                 //=========設定listview========
                 SimpleAdapter adapter = new SimpleAdapter(
