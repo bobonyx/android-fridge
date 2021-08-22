@@ -23,7 +23,26 @@ public class GetTrashData {
         TAICHUNG, PENGHU, HSINCHU
     }
 
+    /**
+     * 不篩選 顯示全部清單
+     * @param activity
+     * @param howmanydata
+     * @param gslist001
+     * @param location
+     */
     public static void getData(Activity activity, TextView howmanydata, ListView gslist001, LOCATION location) {
+        getData(activity, howmanydata, gslist001, location, null);
+    }
+
+    /**
+     * 依據filterLocation 進行資料篩選
+     * @param activity
+     * @param howmanydata
+     * @param gslist001
+     * @param location
+     * @param filterLocation
+     */
+    public static void getData(Activity activity, TextView howmanydata, ListView gslist001, LOCATION location, String filterLocation) {
         //********設定轉圈圈進度對話盒*****************************
         ProgressDialog pd = showProgressDialog(activity);
         //***************************************************************
@@ -59,7 +78,7 @@ public class GetTrashData {
                 if (response.isSuccessful()) {
                     String result = response.body().string();
                     activity.runOnUiThread(() -> {
-                        int dataCount = ProcessData.process(activity, gslist001, result, finalKeys);
+                        int dataCount = ProcessData.process(activity, gslist001, result, finalKeys, filterLocation);
                         howmanydata.setText("共" + dataCount + "筆" + ".");
                         pd.cancel();
                     });
