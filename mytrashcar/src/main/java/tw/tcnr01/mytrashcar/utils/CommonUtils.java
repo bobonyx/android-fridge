@@ -38,9 +38,9 @@ public class CommonUtils {
                 String rid = "";
                 try {
                     lid = t1.getString(keyName);//1-2 2-3 3-4
-                    Log.e("lid", lid);
+//                    Log.e("lid", lid);
                     rid = t2.getString(keyName);
-                    Log.e("rid", rid);
+//                    Log.e("rid", rid);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

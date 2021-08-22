@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import tw.tcnr01.mytrashcar.utils.GetTrashData;
+import tw.tcnr01.mytrashcar.utils.SelectLocationListener;
 
 
 public class Garsign01 extends AppCompatActivity implements View.OnClickListener{
@@ -110,6 +112,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
                 if (null != spinzoneAdapter) {
                     spinzoneAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     s002.setAdapter(spinzoneAdapter);
+                    s002.setOnItemSelectedListener(new SelectLocationListener(Garsign01.this));
                 }
             }
 
