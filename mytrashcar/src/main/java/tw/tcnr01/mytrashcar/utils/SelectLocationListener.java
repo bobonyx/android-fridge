@@ -14,11 +14,13 @@ public class SelectLocationListener implements AdapterView.OnItemSelectedListene
     private Activity activity;
     private TextView howmanydata;
     private ListView gslist001;
+    private GetTrashData.LOCATION location;
 
-    public SelectLocationListener(Activity activity, TextView howmanydata, ListView gslist001) {
+    public SelectLocationListener(Activity activity, TextView howmanydata, ListView gslist001, GetTrashData.LOCATION location) {
         this.activity = activity;//存起來
         this.howmanydata = howmanydata;
         this.gslist001 = gslist001;
+        this.location = location;
     }
 
     @Override
@@ -27,7 +29,7 @@ public class SelectLocationListener implements AdapterView.OnItemSelectedListene
         String[] taichungLocationList = activity.getResources().getStringArray(R.array.area_a001);
 //        Log.d("Location", taichungLocationList[position]); // 北屯區、中區...
 
-        GetTrashData.getData(activity, howmanydata, gslist001, GetTrashData.LOCATION.HSINCHU, taichungLocationList[position]);
+        GetTrashData.getData(activity, howmanydata, gslist001,location, taichungLocationList[position]);
     }
 
     @Override

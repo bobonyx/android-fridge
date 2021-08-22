@@ -68,7 +68,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
         gs_t005 = (TextView) findViewById(R.id.gs_t005);
 
         // 取得預設資料(台中)
-        GetTrashData.getData(this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
+//        GetTrashData.getData(this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
 
         s001 = (Spinner) findViewById(R.id.city_s001);
         s002 = (Spinner) findViewById(R.id.city_s002);
@@ -79,6 +79,8 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ArrayAdapter spinzoneAdapter = null;
+                Log.e("ppos", String.valueOf(position));
+                GetTrashData.LOCATION location=null;
                 switch (position) {
                     case 0://台中
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a001, android.R.layout.simple_spinner_item);
@@ -87,8 +89,8 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
                         gs_t003.setText(getString(R.string.t003));
                         gs_t004.setText(getString(R.string.t004));
                         gs_t005.setText(getString(R.string.t005));
-                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
-
+//                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
+                        location= GetTrashData.LOCATION.TAICHUNG;
                         break;
                     case 1://澎湖
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a003, android.R.layout.simple_spinner_item);
@@ -97,7 +99,8 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
                         gs_t003.setText(getString(R.string.t013));
                         gs_t004.setText(getString(R.string.t014));
                         gs_t005.setText(getString(R.string.t015));
-                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.PENGHU);
+//                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.PENGHU);
+                        location= GetTrashData.LOCATION.PENGHU;
                         break;
                     case 2://新竹
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a004, android.R.layout.simple_spinner_item);
@@ -106,13 +109,14 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
                         gs_t003.setText(getString(R.string.t023));
                         gs_t004.setText(getString(R.string.t024));
                         gs_t005.setText(getString(R.string.t025));
-                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.HSINCHU);
+//                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.HSINCHU);
+                        location= GetTrashData.LOCATION.HSINCHU;
                         break;
                 }
                 if (null != spinzoneAdapter) {
                     spinzoneAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     s002.setAdapter(spinzoneAdapter);
-                    s002.setOnItemSelectedListener(new SelectLocationListener(Garsign01.this, howmanydata, gslist001));
+                    s002.setOnItemSelectedListener(new SelectLocationListener(Garsign01.this, howmanydata, gslist001,location));
                 }
             }
 

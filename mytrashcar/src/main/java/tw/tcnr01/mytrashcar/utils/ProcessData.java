@@ -41,12 +41,12 @@ public class ProcessData {
 //                Log.d("12345678","sssssss");
 //                Log.d("keys[0]", jsonData.getString(keys[0]));
 //                Log.d("keys[1]", jsonData.getString(keys[1]));
-//                Log.d("keys[2]", jsonData.getString(keys[2]));
+                Log.d("keys[2]", jsonData.getString(keys[2]));
 //                Log.d("keys[3]", jsonData.getString(keys[3]));
 //                Log.d("keys[4]", jsonData.getString(keys[4]));
-                if (null == filterLocation) {
+                if (null == filterLocation || filterLocation.equals("選擇區域") ) {
                     mList.add(item);
-                } else if (jsonData.getString(keys[3]).contains(filterLocation)) {
+                } else if (jsonData.getString(keys[2]).contains(filterLocation)) {
                     mList.add(item);
                 }
 
