@@ -5,13 +5,15 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="delegatedBuild" value="true" />
-        <option name="testRunner" value="PLATFORM" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/1603a_OpenData_rubbishtruck" />
+            <option value="$PROJECT_DIR$/Fridge_setting" />
+            <option value="$PROJECT_DIR$/cooksign01" />
             <option value="$PROJECT_DIR$/mytrashcar" />
           </set>
         </option>

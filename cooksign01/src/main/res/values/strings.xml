@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">料理廚藝</string>
+    <string name="txtView">食譜列表</string>
+    <string name="pic">圖片</string>
+    <string name="tvIdTitle">自訂食譜列表</string>
+
+
+</resources>

@@ -1,0 +1,5 @@
+rootProject.name = "Fridge_setting"
+
+include ':setting'
+include ':shoplist'
+

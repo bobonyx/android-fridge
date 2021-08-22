@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TableRow;
@@ -23,7 +24,7 @@ import android.widget.TextView;
 import tw.tcnr01.mytrashcar.utils.GetTrashData;
 
 
-public class Garsign01 extends AppCompatActivity {
+public class Garsign01 extends AppCompatActivity implements View.OnClickListener{
 
     private ListView gslist001;
     private ArrayAdapter<String> adapter;
@@ -36,6 +37,7 @@ public class Garsign01 extends AppCompatActivity {
     private TextView gs_t001, gs_t002, gs_t003, gs_t004, gs_t005;
     private Uri uri;
     private Intent it;
+    private ImageButton searchcar;
 
 
     @Override
@@ -43,21 +45,6 @@ public class Garsign01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.garsign01);//把畫面跟程式碼綁一起
         setupViewComponent();
-//        ((Button)findViewById(R.id.btn_test)).setOnClickListener(v -> setupViewComponent());//箭函式(點燈點lambda) 可以按了重複run debug
-//        ((Button) findViewById(R.id.btn_test)).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                try {
-//                    String aaa = null;
-//                    aaa.substring(0);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                    Toast.makeText(Garsign01.this, "無法取得該參數", Toast.LENGTH_SHORT).show();// "error handle"   可以提醒可能發生錯誤及處理方法且不會閃退
-//                }
-//
-//            }
-//        });
     }
 
     private void setupViewComponent() {
@@ -68,7 +55,7 @@ public class Garsign01 extends AppCompatActivity {
         int newscrollheight = displayMetrics.heightPixels * 90 / 100; // 設定ScrollView使用尺寸的4/5
         //---------------------------------------
         gslist001 = (ListView) findViewById(R.id.gs_list001);
-
+        searchcar=(ImageButton)findViewById(R.id.gs_search001);
         gslist001.getLayoutParams().height = newscrollheight;
         gslist001.setLayoutParams(gslist001.getLayoutParams()); // 重定ScrollView大小
         gstab01 = (TableRow) findViewById(R.id.gs_tab01);
@@ -99,10 +86,8 @@ public class Garsign01 extends AppCompatActivity {
                         gs_t004.setText(getString(R.string.t004));
                         gs_t005.setText(getString(R.string.t005));
                         GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
+
                         break;
-//                    case 1://新北
-//                        spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a002, android.R.layout.simple_spinner_item);
-//                        break;
                     case 1://澎湖
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a003, android.R.layout.simple_spinner_item);
                         gs_t001.setText(getString(R.string.t011));
@@ -121,12 +106,6 @@ public class Garsign01 extends AppCompatActivity {
                         gs_t005.setText(getString(R.string.t025));
                         GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.HSINCHU);
                         break;
-//                    case 4://宜蘭
-//                        spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a005, android.R.layout.simple_spinner_item);
-////                            ArrayAdapter<CharSequence> s002adt = ArrayAdapter.createFromResource(Garsign01.this, R.array.city_a001, android.R.layout.simple_spinner_item);
-////                            s002adt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-////                            s002.setAdapter(s002adt);
-//                        break;
                 }
                 if (null != spinzoneAdapter) {
                     spinzoneAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -140,60 +119,6 @@ public class Garsign01 extends AppCompatActivity {
             }
         });
     }
-//
-//        s002.setOnItemSelectedListener(s001On);
-//        try {
-//            String Task_opendata =
-//                    new TransTask().execute("https://datacenter.taichung.gov.tw/swagger/OpenData/215be7a0-a5a1-48b8-9489-2633fed19de3").get();
-////            臺中市垃圾及資源回收車動態資訊
-////            lineid(清運點編號)、car(車牌號碼)、time(回傳時間)、location(回傳地點)、X(x座標)、Y(y座標)
-//            //===== 設定 opendata 網址===============
-//
-//            List<Map<String, Object>> mList;
-//            mList = new ArrayList<Map<String, Object>>();
-
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();//原本的會比較細分相對應的錯誤 這憶起噴 網路連不到 這邊
-//        }
-//    }
-
-//    private AdapterView.OnItemSelectedListener s001On=new AdapterView.OnItemSelectedListener() {
-//        @Override
-//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//            sSex=parent.getSelectedItem().toString();
-////            if (){
-//        };
-//
-//        @Override
-//        public void onNothingSelected(AdapterView<?> parent) {
-//
-//        }
-//    };
-
-
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {//類似setContentView(R.layout.garsign01)把畫面跟程式碼綁一起
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {//清單的方法
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            this.finish();
-////            onDestroy();//會做記憶體釋放的動作   ad本身就會但時機不定
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
@@ -265,36 +190,16 @@ public class Garsign01 extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.gs_search001:
+                it.setClass(Garsign01.this, GarsignSql.class);
+                startActivity(it);
+             break;
+        }
+    }
 }
 
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        System.gc();//強制記憶體釋放 garbage collection
-//    }
-
-//    public class TransTask extends AsyncTask<String, Void, String> {//跟API撈資料 ad最原始的方法
-//
-//        @Override
-//        protected String doInBackground(String... params) {
-//            StringBuilder sb = new StringBuilder();
-//            try {
-//                URL url = new URL(params[0]);
-//                BufferedReader in = new BufferedReader(//串流和http交流 把資料一個一點一點的接(串)起來 緩衝區(排隊)有意外臨時接 但還沒讀
-//                        new InputStreamReader(url.openStream()));//串流讀取 一直丟一直丟
-//                String line = in.readLine();
-//                while (line != null) {//當LINE不等於空值(字串還有)     讀取完
-//                    Log.d("HTTP", line);
-//                    sb.append(line);//string sb 串
-//                    line = in.readLine();
-//                }
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            return sb.toString();
-//        }
-//    }
-//}
 
