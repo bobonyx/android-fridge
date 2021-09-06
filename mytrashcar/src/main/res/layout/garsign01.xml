@@ -13,12 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="-5dp"
+        android:layout_marginEnd="-8dp"
         android:background="#00000000"
+        android:contentDescription="@string/todo"
         app:srcCompat="@android:drawable/ic_search_category_default"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
-        android:contentDescription="@string/todo" />
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <TableRow
         android:layout_width="match_parent"
@@ -37,28 +37,26 @@
         <Spinner
             android:id="@+id/city_s001"
             style="@android:style/Widget.Spinner.DropDown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/Black"
-            android:backgroundTint="@color/Teal"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
             android:drawSelectorOnTop="true"
             android:entries="@array/city_a001"
             android:prompt="@string/city_s001"
             android:spinnerMode="dialog"
-            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
 
         <Spinner
             android:id="@+id/city_s002"
             style="@android:style/Widget.Spinner.DropDown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/Black"
-            android:backgroundTint="@color/Teal"
+            android:layout_width="145dp"
+            android:layout_height="40dp"
             android:drawSelectorOnTop="true"
             android:entries="@array/area_a001"
             android:prompt="@string/city_s002"
             android:spinnerMode="dialog"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
     </TableRow>
 
     <TableRow
@@ -67,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="37dp"
         android:background="@color/Lime">
 
         <TextView
@@ -117,22 +115,9 @@
         android:layout_height="match_parent"
         android:layout_alignStart="@+id/gs_tab01"
         android:layout_alignTop="@+id/gs_tab01"
-        android:layout_marginStart="-6dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="20dp">
 
     </ListView>
-
-    <TextView
-        android:id="@+id/howmany"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="1dp"
-        android:text="@string/data_amount"
-        android:textColor="@color/purple_700"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
 </RelativeLayout>

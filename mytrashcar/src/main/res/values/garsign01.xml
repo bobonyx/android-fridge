@@ -11,10 +11,10 @@
     <string name="t014">清運時間</string>
     <string name="t015">資源回收車收運時間</string>
 
-    <string name="t022">清潔公車停置地點</string>
-    <string name="t023">預估到達時間</string>
-    <string name="t024">清運日_星期幾</string>
-    <string name="t025">回收日_星期幾</string>
+    <string name="t022">停置地點</string>
+    <string name="t023">預計時間</string>
+    <string name="t024">清運日</string>
+    <string name="t025">回收日</string>
 
     <string name="t_title">縣市觀測點細懸浮微粒狀態更新時間</string>
     <string name="city_t001">清運區域</string>
@@ -28,12 +28,12 @@
     </string-array>
     <string-array name="area_a001">
         <item>選擇區域</item>
-        <item>中區</item>
+        <item>中西區</item>
         <item>東區</item>
         <item>南區</item>
         <item>西區</item>
         <item>北區</item>
-        <item>北屯區</item>
+        <item>北屯</item>
         <item>西屯區</item>
         <item>南屯區</item>
         <item>太平區</item>
@@ -97,10 +97,62 @@
     </string-array>
 
     <string-array name="area_a004">
-        <item>選擇區域</item>
-        <item>東區</item>
-        <item>北區</item>
-        <item>香山區</item>
+        <item>選擇路段</item>
+        <item>光復路</item>
+        <item>關東路</item>
+        <item>新庄街</item>
+        <item>長春街</item>
+        <item>埔頂路</item>
+        <item>園後街</item>
+        <item>忠孝路</item>
+        <item>公園路</item>
+        <item>八德路</item>
+        <item>武陵路</item>
+        <item>湳雅街</item>
+        <item>鐵道路</item>
+        <item>金竹路</item>
+        <item>光華街</item>
+        <item>田美一街</item>
+        <item>田美三街</item>
+        <item>光華南街</item>
+        <item>田美二街</item>
+        <item>光華東街</item>
+        <item>國華街</item>
+        <item>學府路</item>
+        <item>水源街</item>
+        <item>大學路</item>
+        <item>科學園路</item>
+        <item>民有二街</item>
+        <item>民享街</item>
+        <item>民有一街</item>
+        <item>民有街</item>
+        <item>民享一街</item>
+        <item>民有街</item>
+        <item>民有街</item>
+        <item>愛民街</item>
+        <item>裕民街</item>
+        <item>民治街</item>
+        <item>公道五二段</item>
+        <item>金山街</item>
+        <item>金山東街</item>
+        <item>金山</item>
+        <item>綠水路</item>
+        <item>和平路</item>
+        <item>國光街</item>
+        <item>中華路</item>
+        <item>東明街</item>
+        <item>東光路</item>
+        <item>東園街</item>
+        <item>千甲路</item>
+        <item>水利路</item>
+        <item>原興路</item>
+        <item>溪州路</item>
+        <item>民權路</item>
+        <item>經國路</item>
+        <item>溪埔路</item>
+        <item>成功路</item>
+
+
     </string-array>
 
     <string-array name="area_a005">
@@ -130,48 +182,4 @@
     <string name="menu_no">否</string>
 
 
-    <string name="tt001">資料表清單</string>
-    <string name="m_add">新增</string>
-    <string name="m_query">查詢</string>
-    <string name="m_update">編輯刪除</string>
-    <string name="m_delete">刪除</string>
-    <string name="btnadd">新增</string>
-    <string name="btnquery">查詢</string>
-    <string name="btnlist">清單</string>
-    <string name="btndel">刪除</string>
-    <string name="btnupdate">更新</string>
-    <string name="tv001">姓名：</string>
-    <string name="tv002">群組：</string>
-    <string name="tv003">地址：</string>
-    <string name="count_t">共計:</string>
-    <string name="btIdnext">下一筆</string>
-    <string name="btIdPrev">上一筆</string>
-    <string name="tvIdTitle">資料內容</string>
-    <string name="btIdtop">首筆</string>
-    <string name="btIdend">尾筆</string>
-    <string name="m_batch">批次新增</string>
-    <string name="m_clear">清空資料</string>
-    <string name="txtid">ID   :</string>
-    <string name="m_list">列表清單</string>
-    <string name="hint">請輸入</string>
-    <string name="m_spinner">下拉選單</string>
-    <string name="prompt_select_name">請選擇好友</string>
-    <string name="btnabandon">取消執行</string>
-    <string name="btnacannel">取消</string>
-    <string name="query_ans">查詢結果</string>
-    <string name="btidcancel">結束列表</string>
-    <string name="btnreport">列表</string>
-    <string name="descr">替代文字</string>
-    <string name="m_mysql">匯入MySQL</string>
-    <string name="m_test">測試</string>
-    <string name="btn_test">讀取MySQL資料</string>
-    <string name="pic">圖片</string>
-    <string name="blank">空白</string>
-    <string name="m_message">資料刪除無法復原\n確定將所有資料刪除嗎?</string>
-    <string name="m_altitle">清空所有資料</string>
-    <string name="clear">清空資料</string>
-    <string name="m_ans">資料</string>
-    <string name="servermsg">伺服機狀態:</string>
-    <string name="now_time">更新:</string>
-    <string name="m_return">返回編輯</string>
 </resources>

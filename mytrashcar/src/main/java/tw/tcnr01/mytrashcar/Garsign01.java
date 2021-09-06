@@ -38,7 +38,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
     private TextView howmanydata;
     private TextView gs_t001, gs_t002, gs_t003, gs_t004, gs_t005;
     private Uri uri;
-    private Intent it;
+    private Intent its;
     private ImageButton searchcar;
 
 
@@ -50,7 +50,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
     }
 
     private void setupViewComponent() {
-        howmanydata = (TextView) findViewById(R.id.howmany);
+//        howmanydata = (TextView) findViewById(R.id.howmany);
         // 動態調整高度 抓取使用裝置尺寸
         DisplayMetrics displayMetrics = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -66,12 +66,13 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
         gs_t003 = (TextView) findViewById(R.id.gs_t003);
         gs_t004 = (TextView) findViewById(R.id.gs_t004);
         gs_t005 = (TextView) findViewById(R.id.gs_t005);
-
+        searchcar.setOnClickListener(this);
         // 取得預設資料(台中)
 //        GetTrashData.getData(this, howmanydata, gslist001, GetTrashData.LOCATION.TAICHUNG);
 
         s001 = (Spinner) findViewById(R.id.city_s001);
         s002 = (Spinner) findViewById(R.id.city_s002);
+        //初始顯示spinner值
         ArrayAdapter<CharSequence> s001adt = ArrayAdapter.createFromResource(this, R.array.city_a001, android.R.layout.simple_spinner_item);
         s001adt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s001.setAdapter(s001adt);
@@ -105,8 +106,8 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
                     case 2://新竹
                         spinzoneAdapter = ArrayAdapter.createFromResource(Garsign01.this, R.array.area_a004, android.R.layout.simple_spinner_item);
                         gs_t001.setText(getString(R.string.t001));
-                        gs_t002.setText(getString(R.string.t022));
-                        gs_t003.setText(getString(R.string.t023));
+                        gs_t002.setText(getString(R.string.t023));
+                        gs_t003.setText(getString(R.string.t022));
                         gs_t004.setText(getString(R.string.t024));
                         gs_t005.setText(getString(R.string.t025));
 //                        GetTrashData.getData(Garsign01.this, howmanydata, gslist001, GetTrashData.LOCATION.HSINCHU);
@@ -116,7 +117,7 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
                 if (null != spinzoneAdapter) {
                     spinzoneAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     s002.setAdapter(spinzoneAdapter);
-                    s002.setOnItemSelectedListener(new SelectLocationListener(Garsign01.this, howmanydata, gslist001,location));
+                    s002.setOnItemSelectedListener(new SelectLocationListener(Garsign01.this,gslist001,location));
                 }
             }
 
@@ -145,8 +146,8 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
 
             case R.id.menu_fb:
                 uri = Uri.parse("https://www.facebook.com/kai.hao.9");
-                it = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(it);
+                its = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(its);
                 break;
 
             case R.id.menu_notify:
@@ -203,8 +204,8 @@ public class Garsign01 extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.gs_search001:
-                it.setClass(Garsign01.this, GarsignSql.class);
-                startActivity(it);
+//                it.setClass(Garsign01.this, GarsignSql.class);
+//                startActivity(it);
                 break;
         }
     }

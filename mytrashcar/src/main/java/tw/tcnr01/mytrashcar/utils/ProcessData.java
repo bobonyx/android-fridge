@@ -49,7 +49,6 @@ public class ProcessData {
                 } else if (jsonData.getString(keys[2]).contains(filterLocation)) {
                     mList.add(item);
                 }
-
                 //=========設定listview========
                 SimpleAdapter adapter = new SimpleAdapter(
                         context,
