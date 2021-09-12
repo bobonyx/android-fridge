@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="t001">車號</string>
-    <string name="t002">時間</string>
-    <string name="t003">地區</string>
-    <string name="t004">座標X</string>
-    <string name="t005">座標Y</string>
-    <string name="t_title">縣市觀測點細懸浮微粒狀態更新時間</string>
-</resources>

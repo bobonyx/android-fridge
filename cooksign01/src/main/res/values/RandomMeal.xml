@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="RM_t001">不知道要吃什麼?</string>
+    <string name="RM_b001">今晚我想來點...</string>
+    <string name="RM_result"></string>
+
+
+
+
+    <string name="RM_resultTEST01">燒肉</string>
+    <string name="RM_resultTEST02">壽喜燒</string>
+    <string name="RM_resultTEST03">火鍋</string>
+    <string name="RM_resultTEST04">拉麵</string>
+    <string name="RM_resultTEST05">壽司</string>
+    <string name="RM_resultTEST06">披薩</string>
+    <string name="RM_resultTEST07">鐵板燒</string>
+    <string name="RM_resultTEST08">飯飯</string>
+    <string name="RM_resultTEST09">麥當勞</string>
+</resources>

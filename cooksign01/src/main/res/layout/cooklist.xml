@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_columnWeight="@dimen/p100"
-    android:background="@color/Silver"
+    android:background="@color/Fridge_HpBg"
     android:padding="@dimen/p0"
     tools:context=".Cooklist">
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_marginTop="@dimen/p10"-->
-<!--        android:layout_marginEnd="@dimen/p10"-->
-<!--        android:text="TextView"-->
-<!--        android:textColor="@color/Blue"-->
-<!--        android:textSize="16sp" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_marginTop="@dimen/p10"-->
+    <!--        android:layout_marginEnd="@dimen/p10"-->
+    <!--        android:text="TextView"-->
+    <!--        android:textColor="@color/Blue"-->
+    <!--        android:textSize="16sp" />-->
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -110,50 +110,35 @@
         android:layout_below="@+id/ch_t001"
         android:layout_alignStart="@+id/ch_t001"
         android:layout_marginStart="@dimen/p0"
-        android:layout_marginTop="@dimen/p140"
+        android:layout_marginTop="@dimen/p150"
         android:text="@string/ch_t002"
         android:textColor="@color/Gray"
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/ch_b101"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ch_t001"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="@dimen/p10"
-        android:layout_marginTop="@dimen/p10"
-        android:background="@drawable/cook_btn_new"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/clook_b001"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ch_t001"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/p10"
-        android:layout_marginEnd="@dimen/p10"
-        android:background="@color/Fridge"
-        android:text="@string/clook_text"
-        android:textColor="#4527A0" />
-
-    <HorizontalScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ch_t001"
-        android:layout_alignStart="@+id/ch_t001"
-        android:layout_marginStart="@dimen/p0"
-        android:layout_marginTop="@dimen/p10">
+        android:layout_marginTop="@dimen/p10"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <Button
+            android:id="@+id/ch_b101"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/createcook"
+            android:text="自訂廚藝料理"
+            android:textColor="@color/White"
+            android:textSize="34sp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        </LinearLayout>
-    </HorizontalScrollView>
+        <Button
+            android:id="@+id/testbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/ch_t001"
@@ -165,60 +150,6 @@
         android:textColor="@color/Gray"
         android:textSize="16sp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/fri_t002"
-        android:layout_width="match_parent"
-        android:layout_height="87.5dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/White" />
-
-    <Button
-        android:id="@+id/fri_b004"
-        android:layout_width="67.5dp"
-        android:layout_height="67.5dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="17.76dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/cook_btn"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/fri_b003"
-        android:layout_width="67.5dp"
-        android:layout_height="67.5dp"
-        android:layout_alignBottom="@+id/fri_b004"
-        android:layout_marginEnd="17.76dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toStartOf="@+id/fri_b004"
-        android:background="@drawable/shop_btn"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/fri_b002"
-        android:layout_width="67.5dp"
-        android:layout_height="67.5dp"
-        android:layout_alignBottom="@+id/fri_b003"
-        android:layout_marginEnd="17.76dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toStartOf="@+id/fri_b003"
-        android:background="@drawable/expired_btn"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/fri_b001"
-        android:layout_width="67.5dp"
-        android:layout_height="67.5dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toStartOf="@+id/fri_b002"
-        android:background="@drawable/fridge_btn"
-        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </RelativeLayout>

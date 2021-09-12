@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tw.tcnr06.cooklist">
+    package="tw.tcnr.fridge">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_1"
@@ -11,7 +14,26 @@
         android:roundIcon="@mipmap/ic_launcher_1_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Cooklist">
+
+ <!--
+     The API key for Google Maps-based APIs is defined as a string resource.
+     (See the file "res/values/google_maps_api.xml").
+     Note that the API key is linked to the encryption key used to sign the APK.
+     You need a different API key for each encryption key, including the release key that is used to
+     sign the APK for publishing.
+     You can define the keys for the debug and release targets in src/debug/ and src/release/.
+-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:values="@string/google_maps_key" />
+
+        <activity
+            android:name=".TrashcarMapsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_trashcar_maps" />
+
+        <activity android:name=".Homepic"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,9 +42,18 @@
         </activity>
 
         <activity android:name=".Copen03"></activity>
-        <activity android:name=".CEdit"></activity>
         <activity android:name=".Cbook"></activity>
         <activity android:name=".Copen01"></activity>
+        <activity android:name=".CeditMain"></activity>
+        <activity android:name=".Cooklist"></activity>
+        <activity android:name=".HomePage"></activity>
+        <activity android:name=".CHPage"></activity>
+        <activity android:name=".Garsign01" android:label="@string/title_activity_m1901"></activity>
+        <activity android:name=".Expired"></activity>
+        <activity android:name=".Fridge"></activity>
+        <activity android:name=".ShoplistMain"></activity>
+        <activity android:name=".RANDOM_MEAL"></activity>
+        <activity android:name=".Googlelogin"></activity>
     </application>
 
 </manifest>

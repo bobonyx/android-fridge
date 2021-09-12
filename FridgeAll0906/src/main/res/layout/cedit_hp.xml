@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rel_cedit_hp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Fridge_HpBg">
+
+    <LinearLayout
+        android:id="@+id/chp_rel_ceditlinear01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/subTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/FridgeDark"
+            android:text="現有食譜"
+            android:textColor="@color/White"
+            android:textSize="14sp"
+            tools:ignore="TextContrastCheck" />
+
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White">
+
+        </ListView>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/add_cp_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/p20"
+        android:layout_marginBottom="@dimen/p10"
+        android:background="#00000000"
+        app:srcCompat="@drawable/add_cp_btn"
+        tools:ignore="SpeakableTextPresentCheck" />
+</RelativeLayout>

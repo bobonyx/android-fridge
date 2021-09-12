@@ -17,6 +17,7 @@
         android:layout_marginEnd="-8dp"
         android:background="#00000000"
         android:contentDescription="@string/todo"
+        android:visibility="invisible"
         app:srcCompat="@android:drawable/ic_search_category_default"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,ImageContrastCheck" />
 

@@ -27,5 +27,14 @@
     <color name="Purple">#800080</color>
     <color name="FridgeDark">#6B9B4C</color>
     <color name="Fridge">#82BC5C</color>
+    <color name="Fridge_HpBg">#FCE8C0</color>
 
+    <color name="papayawhip">#FFEFD5</color><!--番木色 -->
+    <color name="mediumaquamarine">#66CDAA</color><!--中綠色-->
+
+    <color name="blue_grey_500">#607D8B</color>
+    <color name="blue_grey_600">#546E7A</color>
+    <color name="blue_grey_700">#455A64</color>
+    <color name="blue_grey_800">#37474F</color>
+    <color name="blue_grey_900">#263238</color>
 </resources>

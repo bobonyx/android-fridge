@@ -2,8 +2,8 @@ rootProject.name = "rubbish truck"
 
 
 include ':mytrashcar'
-
-include ':1603a_OpenData_rubbishtruck'
-include ':Fridge_setting'
 include ':cooksign01'
+include ':FridgeAll0904'
 include ':FridgeAll0831'
+include ':FridgeAll0906'
+include ':Fridgeupdate'
